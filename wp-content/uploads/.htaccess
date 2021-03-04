@@ -1,0 +1,58 @@
+
+# BEGIN WebP Express
+# The rules below have been dynamically created by WebP Express in accordance with the plugin settings
+# DO NOT EDIT MANUALLY (unless you are prepared that your changes might be overridden by WebP Express)
+# The following parameters have been in play to produce the rules:
+#
+# WebP Express options:
+# - Operation mode: varied-image-responses
+# - Redirection to existing webp: enabled
+# - Redirection to converter: enabled
+# - Redirection to converter to create missing webp files upon request for the webp: enabled
+# - Destination folder: separate
+# - Destination extension: append
+# - Destination structure: image-roots
+# - Image types: jpeg, png
+# - Alter HTML enabled?: yes
+#
+# Wordpress/Server configuration:
+# - Document root availablity: Available and its "realpath" is available too. Can be used for structuring cache dir.
+#
+# .htaccess capability test results:
+# - mod_header working?: yes
+# - pass variable from .htaccess to script through header working?: no
+# - pass variable from .htaccess to script through environment variable working?: yes
+#
+# Role of the dir that this .htaccess is located in:
+# - Is this .htaccess in a dir containing source images?: yes
+# - Is this .htaccess in a dir containing webp images?: no
+
+# Rules for handling requests for source images
+# ---------------------------------------------
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect to existing converted image in cache-dir (if browser supports webp)
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteCond %{REQUEST_FILENAME} (?i)(X:/Openserver/domains/conreality.loc\app/wp-content/uploads/)(.*)(\.jpe?g|\.png)$
+  RewriteCond X:/Openserver/domains/conreality.loc\app/wp-content/webp-express/webp-images/uploads/%2%3.webp -f
+  RewriteRule (?i)(.*)(\.jpe?g|\.png)$ /wp-content/webp-express/webp-images/uploads/%2%3\.webp [T=image/webp,E=EXISTING:1,E=ADDVARY:1,L]
+
+  # Redirect images to webp-on-demand.php (if browser supports webp)
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule (?i).*(\.jpe?g|\.png)$ /wp-content/plugins/webp-express/wod/webp-on-demand.php?xwp-content-rel-to-plugin-dir=x../&xsource-rel-htaccess=x$0&htaccess-id=uploads [E=WE_WP_CONTENT_REL_TO_PLUGIN_DIR:../,E=WE_SOURCE_REL_HTACCESS:$0,E=WE_HTACCESS_ID:uploads,NC,L]
+
+  # Make sure that browsers which does not support webp also gets the Vary:Accept header
+  # when requesting images that would be redirected to webp on browsers that does.
+  <IfModule mod_headers.c>
+    <FilesMatch "(?i)\.(jpe?g|png)$">
+      Header append "Vary" "Accept"
+    </FilesMatch>
+  </IfModule>
+
+</IfModule>
+
+# END WebP Express
