@@ -1,4 +1,4 @@
-WebP Express 0.19.0. Conversion triggered using bulk conversion, 2021-02-28 08:32:44
+WebP Express 0.19.0. Conversion triggered using bulk conversion, 2021-03-10 12:05:26
 
 *WebP Convert 2.3.2*  ignited.
 - PHP version: 7.3.2
@@ -10,7 +10,7 @@ WebP Express 0.19.0. Conversion triggered using bulk conversion, 2021-02-28 08:3
 ------------
 The following options have been set explicitly. Note: it is the resulting options after merging down the "jpeg" and "png" options and any converter-prefixed options.
 - source: X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/contacts-270x268.jpg
-- destination: X:\Openserver\domains\conreality.loc\app/wp-content/webp-express/webp-images/uploads/2021\02\contacts-270x268.jpg.webp
+- destination: X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/contacts-270x268.jpg.webp
 - log-call-arguments: true
 - converters: (array of 10 items)
 
@@ -21,10 +21,9 @@ WebP Express 0.19.0. Conversion triggered using bulk conversion, 2021-02-28 08:3
 - extra-converters: (empty array)
 
 The following options were supplied and are passed on to the converters in the stack:
-- encoding: "auto"
+- encoding: "lossy"
 - metadata: "none"
-- near-lossless: 100
-- quality: 70
+- quality: 100
 ------------
 
 
@@ -34,14 +33,13 @@ WebP Express 0.19.0. Conversion triggered using bulk conversion, 2021-02-28 08:3
 ------------
 The following options have been set explicitly. Note: it is the resulting options after merging down the "jpeg" and "png" options and any converter-prefixed options.
 - source: X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/contacts-270x268.jpg
-- destination: X:\Openserver\domains\conreality.loc\app/wp-content/webp-express/webp-images/uploads/2021\02\contacts-270x268.jpg.webp
-- encoding: "auto"
+- destination: X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/contacts-270x268.jpg.webp
+- encoding: "lossy"
 - low-memory: true
 - log-call-arguments: true
 - metadata: "none"
 - method: 6
-- near-lossless: 100
-- quality: 70
+- quality: 100
 - use-nice: true
 - command-line-options: ""
 - try-common-system-paths: true
@@ -52,6 +50,7 @@ WebP Express 0.19.0. Conversion triggered using bulk conversion, 2021-02-28 08:3
 - auto-filter: false
 - default-quality: 75
 - max-quality: 85
+- near-lossless: 60
 - preset: "none"
 - size-in-percentage: null (not set)
 - skip: false
@@ -60,9 +59,6 @@ WebP Express 0.19.0. Conversion triggered using bulk conversion, 2021-02-28 08:3
 - try-discovering-cwebp: true
 ------------
 
-Encoding is set to auto - converting to both lossless and lossy and selecting the smallest file
-
-Converting to lossy
 Looking for cwebp binaries.
 Discovering if a plain cwebp call works (to skip this step, disable the "try-cwebp" option)
 - Executing: cwebp -version 2>&1. Result: *Exec failed* (return code: 1)
@@ -86,77 +82,35 @@ WebP Express 0.19.0. Conversion triggered using bulk conversion, 2021-02-28 08:3
 - X:\Openserver\domains\conreality.loc\app\wp-content\plugins\webp-express\vendor\rosell-dk\webp-convert\src\Convert\Converters\Binaries\cwebp-110-windows-x64.exe: (version: 1.1.0)
 Trying the first of these. If that should fail (it should not), the next will be tried and so on.
 Creating command line options for version: 1.1.0
-Quality: 70. 
+Quality: 100. 
 Consider setting quality to "auto" instead. It is generally a better idea
+The near-lossless option ignored for lossy
 Trying to convert by executing the following command:
-X:\Openserver\domains\conreality.loc\app\wp-content\plugins\webp-express\vendor\rosell-dk\webp-convert\src\Convert\Converters\Binaries\cwebp-110-windows-x64.exe -metadata none -q 70 -alpha_q "85" -m 6 -low_memory "X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/contacts-270x268.jpg" -o "X:\Openserver\domains\conreality.loc\app/wp-content/webp-express/webp-images/uploads/2021\02\contacts-270x268.jpg.webp.lossy.webp" 2>&1 2>&1
+X:\Openserver\domains\conreality.loc\app\wp-content\plugins\webp-express\vendor\rosell-dk\webp-convert\src\Convert\Converters\Binaries\cwebp-110-windows-x64.exe -metadata none -q 100 -alpha_q "85" -m 6 -low_memory "X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/contacts-270x268.jpg" -o "X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/contacts-270x268.jpg.webp" 2>&1 2>&1
 
 *Output:* 
-Saving file 'X:\Openserver\domains\conreality.loc\app/wp-content/webp-express/webp-images/uploads/2021\02\contacts-270x268.jpg.webp.lossy.webp'
+Saving file 'X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/contacts-270x268.jpg.webp'
 File:      X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/contacts-270x268.jpg
 Dimension: 270 x 268
-Output:    6366 bytes Y-U-V-All-PSNR 38.35 45.74 46.23   39.75 dB
-           (0.70 bpp)
-block count:  intra4:        226  (78.20%)
-              intra16:        63  (21.80%)
+Output:    26482 bytes Y-U-V-All-PSNR 51.88 53.68 54.08   52.45 dB
+           (2.93 bpp)
+block count:  intra4:        276  (95.50%)
+              intra16:        13  (4.50%)
               skipped:         0  (0.00%)
-bytes used:  header:             64  (1.0%)
-             mode-partition:   1014  (15.9%)
+bytes used:  header:            393  (1.5%)
+             mode-partition:   1448  (5.5%)
  Residuals bytes  |segment 1|segment 2|segment 3|segment 4|  total
-  intra4-coeffs:  |    4514 |      80 |      30 |      40 |    4664  (73.3%)
- intra16-coeffs:  |      91 |      12 |      35 |      86 |     224  (3.5%)
-  chroma coeffs:  |     311 |      10 |      11 |      40 |     372  (5.8%)
-    macroblocks:  |      76%|       4%|       3%|      16%|     289
-      quantizer:  |      32 |      24 |      17 |      16 |
-   filter level:  |      27 |       6 |       3 |      23 |
+  intra4-coeffs:  |   21265 |       0 |       0 |       0 |   21265  (80.3%)
+ intra16-coeffs:  |     262 |       0 |       0 |       0 |     262  (1.0%)
+  chroma coeffs:  |    3083 |       0 |       0 |       0 |    3083  (11.6%)
+    macroblocks:  |      100%|       0%|       0%|       0%|     289
+      quantizer:  |       0 |       0 |       0 |       0 |
+   filter level:  |       0 |       0 |       0 |       0 |
 ------------------+---------+---------+---------+---------+-----------------
- segments total:  |    4916 |     102 |      76 |     166 |    5260  (82.6%)
+ segments total:  |   24610 |       0 |       0 |       0 |   24610  (92.9%)
 
 Success
-Reduction: 88% (went from 51 kb to 6 kb)
-
-Converting to lossless
-Looking for cwebp binaries.
-Discovering if a plain cwebp call works (to skip this step, disable the "try-cwebp" option)
-- Executing: cwebp -version 2>&1. Result: *Exec failed* (return code: 1)
-
-*Output:* 
-'cwebp' is not recognized as an internal or external command,
-operable program or batch file.
-
-Nope a plain cwebp call does not work
-Discovering binaries using "which -a cwebp" command. (to skip this step, disable the "try-discovering-cwebp" option)
-Found 0 binaries
-Discovering binaries by peeking in common system paths (to skip this step, disable the "try-common-system-paths" option)
-Found 0 binaries
-Discovering binaries which are distributed with the webp-convert library (to skip this step, disable the "try-supplied-binary-for-os" option)
-Checking if we have a supplied precompiled binary for your OS (WINNT)... We do.
-Found 1 binaries: 
-- X:\Openserver\domains\conreality.loc\app\wp-content\plugins\webp-express\vendor\rosell-dk\webp-convert\src\Convert\Converters\Binaries\cwebp-110-windows-x64.exe
-Detecting versions of the cwebp binaries found
-- Executing: X:\Openserver\domains\conreality.loc\app\wp-content\plugins\webp-express\vendor\rosell-dk\webp-convert\src\Convert\Converters\Binaries\cwebp-110-windows-x64.exe -version 2>&1. Result: version: *1.1.0*
-Binaries ordered by version number.
-- X:\Openserver\domains\conreality.loc\app\wp-content\plugins\webp-express\vendor\rosell-dk\webp-convert\src\Convert\Converters\Binaries\cwebp-110-windows-x64.exe: (version: 1.1.0)
-Trying the first of these. If that should fail (it should not), the next will be tried and so on.
-Creating command line options for version: 1.1.0
-Trying to convert by executing the following command:
-X:\Openserver\domains\conreality.loc\app\wp-content\plugins\webp-express\vendor\rosell-dk\webp-convert\src\Convert\Converters\Binaries\cwebp-110-windows-x64.exe -metadata none -q 70 -alpha_q "85" -lossless -m 6 -low_memory "X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/contacts-270x268.jpg" -o "X:\Openserver\domains\conreality.loc\app/wp-content/webp-express/webp-images/uploads/2021\02\contacts-270x268.jpg.webp.lossless.webp" 2>&1 2>&1
-
-*Output:* 
-Saving file 'X:\Openserver\domains\conreality.loc\app/wp-content/webp-express/webp-images/uploads/2021\02\contacts-270x268.jpg.webp.lossless.webp'
-File:      X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/contacts-270x268.jpg
-Dimension: 270 x 268
-Output:    57944 bytes (6.41 bpp)
-Lossless-ARGB compressed size: 57944 bytes
-  * Header size: 1928 bytes, image data size: 55991
-  * Lossless features used: PREDICTION CROSS-COLOR-TRANSFORM SUBTRACT-GREEN
-  * Precision Bits: histogram=3 transform=3 cache=8
-
-Success
-Reduction: -10% (went from 51 kb to 57 kb)
-
-Picking lossy
 cwebp succeeded :)
 
-Converted image in 599 ms, reducing file size with 88% (went from 51 kb to 6 kb)
+Converted image in 407 ms, reducing file size with 50% (went from 51 kb to 26 kb)
 

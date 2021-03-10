@@ -45,6 +45,6 @@ if (function_exists('add_image_size')) {
   add_image_size('slider-thumb', 970, 636);
   add_image_size('slider-thumb-mob', 375, 245);
   add_image_size('member-thumb', 270, 270);
-  add_image_size('contacts-thumb', 725, 720);
+  add_image_size('contacts-thumb', 725, 720, true);
   add_image_size('video-thumb', 191, 142);
 }

@@ -4,29 +4,73 @@
 
   <!-- Parallax -->
   <div class="intro-bg" parallax data-x="0.35" data-y="0.35"></div>
+  <div class="turret" parallax data-x="0.35" data-y="0.35"></div>
+  <div class="bullet-back" parallax data-x="-0.35"></div>
   <div class="soldier" parallax data-x="0.7" data-y="0.7">
     <div class="person"></div>
-    <div class="horizontals" parallax data-x="0.3" data-y="0.3"></div>
-    <div class="hud life-hud">
-      <?php svg_embed('img/bg/hud/life-hud'); ?>
+
+    <div id="healthHUD" class="hud health-hud">
+      <div class="hud-point"></div>
+      <?php svg_embed('img/hud/health-hud'); ?>
+      <div class="hud-title">
+        <div class="text" data-text="BPM"></div>
+        <div class="icon">
+          <?php svg_embed('img/hud/icons/heart') ?>
+        </div>
+      </div>
+      <div class="hud-desc large"><div></div></div>
     </div>
-    <div class="hud ear-hud">
-      <?php svg_embed('img/bg/hud/ear-hud'); ?>
+
+    <div id="connectHUD" class="hud connect-hud">
+      <div class="hud-point"></div>
+      <?php svg_embed('img/hud/connect-hud'); ?>
+      <div class="hud-title">
+        <div class="text" data-text="CONNECTED"></div>
+        <div class="icon">
+          <?php svg_embed('img/hud/icons/bluetooth') ?>
+        </div>
+      </div>
+      <div class="hud-desc large"><div></div></div>
     </div>
-    <div class="hud eye-hud">
-      <?php svg_embed('img/bg/hud/eye-hud'); ?>
+
+    <div id="map3dHUD" class="hud map3d-hud">
+      <div class="hud-point"></div>
+      <?php svg_embed('img/hud/map3d-hud'); ?>
+      <div class="hud-title">
+        <div class="text" data-text="MAP <span>3D</span>"></div>
+      </div>
+      <div class="hud-desc large"><div></div></div>
     </div>
-    <div class="hud navigation-hud">
-      <?php svg_embed('img/bg/hud/navigation-hud'); ?>
+
+    <div id="navHUD" class="hud navigation-hud">
+      <div class="hud-point"></div>
+      <?php svg_embed('img/hud/navigation-hud'); ?>
+      <div class="hud-title left">
+        <div class="text" data-text="NAVIGATION"></div>
+        <div class="icon">
+          <?php svg_embed('img/hud/icons/map') ?>
+        </div>
+      </div>
+      <div class="hud-title right">
+        <div class="text" data-text="MAP <span>2D</span>"></div>
+      </div>
+      <div class="hud-desc large left"><div></div></div>
+      <div class="hud-desc large right"><div></div></div>
+      <div class="compass" parallax data-x="0.3" data-y="0.3">
+        <?php svg_embed('img/hud/compass'); ?>
+      </div>
     </div>
-    <div class="hud horizon-top-hud" parallax data-x="0.3" data-y="0.3">
-      <?php svg_embed('img/bg/hud/horizon-top-hud'); ?>
+
+    <div class="hud terrain" parallax data-x="0.2" data-y="0.2"></div>
+    <div class="hud terrain-top-hud">
+      <?php svg_embed('img/hud/terrain-top-hud'); ?>
     </div>
-    <div class="hud horizon-bottom-hud" parallax data-x="0.3" data-y="0.3">
-      <?php svg_embed('img/bg/hud/horizon-bottom-hud'); ?>
+    <div class="hud terrain-bottom-hud" parallax data-x="0.2" data-y="0.2">
+      <?php svg_embed('img/hud/terrain-bottom-hud'); ?>
     </div>
   </div>
-  <div class="bullet" parallax data-x="2" data-y="1"></div>
+  <div class="bullet-front" parallax data-x="2" data-y="1"></div>
+  <div class="intro-bg-noise"></div>
   <div class="red-light"></div>
   <div class="grass"></div>
 
@@ -145,8 +189,8 @@
     <div class="swiper-wrapper">
       <?php foreach($slides as $slide): ?>
       <div class="swiper-slide" data-title="<?php echo $slide['title']; ?>" data-text="<?php echo $slide['desc']; ?>">
-          <?php $thumb = (!wp_is_mobile()) ? 'slider-thumb' : 'slider-thumb-mob'; ?>
-          <?php echo wp_get_attachment_image($slide['image'], $thumb); ?>
+        <?php $thumb = (!wp_is_mobile()) ? 'slider-thumb' : 'slider-thumb-mob'; ?>
+        <?php echo wp_get_attachment_image($slide['image'], $thumb); ?>
       </div>
       <?php endforeach; ?>
     </div>

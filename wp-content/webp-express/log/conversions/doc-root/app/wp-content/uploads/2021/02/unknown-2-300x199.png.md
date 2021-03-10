@@ -1,4 +1,4 @@
-WebP Express 0.19.0. Conversion triggered using bulk conversion, 2021-02-28 08:34:44
+WebP Express 0.19.0. Conversion triggered with the conversion script (wod/webp-on-demand.php), 2021-03-10 12:54:20
 
 *WebP Convert 2.3.2*  ignited.
 - PHP version: 7.3.2
@@ -9,8 +9,8 @@ WebP Express 0.19.0. Conversion triggered using bulk conversion, 2021-02-28 08:3
 Options:
 ------------
 The following options have been set explicitly. Note: it is the resulting options after merging down the "jpeg" and "png" options and any converter-prefixed options.
-- source: X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/unknown-2-300x199.png
-- destination: X:\Openserver\domains\conreality.loc\app/wp-content/webp-express/webp-images/uploads/2021\02\unknown-2-300x199.png.webp
+- source: [doc-root]/app/wp-content/uploads/2021/02/unknown-2-300x199.png
+- destination: X:\Openserver\domains\conreality.loc\app\wp-content\webp-express/webp-images/uploads/2021\02\unknown-2-300x199.png.webp
 - log-call-arguments: true
 - converters: (array of 10 items)
 
@@ -33,8 +33,8 @@ WebP Express 0.19.0. Conversion triggered using bulk conversion, 2021-02-28 08:3
 Options:
 ------------
 The following options have been set explicitly. Note: it is the resulting options after merging down the "jpeg" and "png" options and any converter-prefixed options.
-- source: X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/unknown-2-300x199.png
-- destination: X:\Openserver\domains\conreality.loc\app/wp-content/webp-express/webp-images/uploads/2021\02\unknown-2-300x199.png.webp
+- source: [doc-root]/app/wp-content/uploads/2021/02/unknown-2-300x199.png
+- destination: X:\Openserver\domains\conreality.loc\app\wp-content\webp-express/webp-images/uploads/2021\02\unknown-2-300x199.png.webp
 - encoding: "lossless"
 - low-memory: true
 - log-call-arguments: true
@@ -85,11 +85,11 @@ WebP Express 0.19.0. Conversion triggered using bulk conversion, 2021-02-28 08:3
 Creating command line options for version: 1.1.0
 Quality: 85. 
 Trying to convert by executing the following command:
-X:\Openserver\domains\conreality.loc\app\wp-content\plugins\webp-express\vendor\rosell-dk\webp-convert\src\Convert\Converters\Binaries\cwebp-110-windows-x64.exe -metadata none -q 85 -alpha_q "85" -lossless -m 6 -low_memory "X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/unknown-2-300x199.png" -o "X:\Openserver\domains\conreality.loc\app/wp-content/webp-express/webp-images/uploads/2021\02\unknown-2-300x199.png.webp" 2>&1 2>&1
+X:\Openserver\domains\conreality.loc\app\wp-content\plugins\webp-express\vendor\rosell-dk\webp-convert\src\Convert\Converters\Binaries\cwebp-110-windows-x64.exe -metadata none -q 85 -alpha_q "85" -lossless -m 6 -low_memory "[doc-root]/app/wp-content/uploads/2021/02/unknown-2-300x199.png" -o "X:\Openserver\domains\conreality.loc\app\wp-content\webp-express/webp-images/uploads/2021\02\unknown-2-300x199.png.webp" 2>&1 2>&1
 
 *Output:* 
-Saving file 'X:\Openserver\domains\conreality.loc\app/wp-content/webp-express/webp-images/uploads/2021\02\unknown-2-300x199.png.webp'
-File:      X:\Openserver\domains\conreality.loc\app/wp-content/uploads/2021/02/unknown-2-300x199.png
+Saving file 'X:\Openserver\domains\conreality.loc\app\wp-content\webp-express/webp-images/uploads/2021\02\unknown-2-300x199.png.webp'
+File:      [doc-root]/app/wp-content/uploads/2021/02/unknown-2-300x199.png
 Dimension: 300 x 199
 Output:    58222 bytes (7.80 bpp)
 Lossless-ARGB compressed size: 58222 bytes
@@ -100,5 +100,5 @@ WebP Express 0.19.0. Conversion triggered using bulk conversion, 2021-02-28 08:3
 Success
 cwebp succeeded :)
 
-Converted image in 296 ms, reducing file size with 36% (went from 89 kb to 57 kb)
+Converted image in 421 ms, reducing file size with 36% (went from 89 kb to 57 kb)
 

@@ -2058,7 +2058,7 @@ function upgrade_430_fix_comments() {
 		"SELECT `comment_ID` FROM `{$wpdb->comments}`
 			WHERE `comment_date_gmt` > '2015-04-26'
 			AND LENGTH( `comment_content` ) >= {$allowed_length}
-			AND ( `comment_content` LIKE '%%' )"
+			AND ( `comment_content` LIKE '%<%' OR `comment_content` LIKE '%>%' )"
 	);
 
 	foreach ( $comments as $comment ) {
@@ -3547,6 +3547,8 @@ function wp_should_upgrade_global_tables() {
 
 	/**
 	 * Filters if upgrade routines should be run on global tables.
+	 *
+	 * @since 4.3.0
 	 *
 	 * @param bool $should_upgrade Whether to run the upgrade routines on global tables.
 	 */

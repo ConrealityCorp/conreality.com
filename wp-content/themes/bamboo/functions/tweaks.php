@@ -52,8 +52,6 @@ if (is_admin()) {
     }, 999);
 
     // Disable theme & plugin edit from admin
-    define('DISALLOW_FILE_EDIT', true);
-
     add_action('_admin_menu', function () {
         remove_action('admin_menu', '_add_themes_utility_last', 101);
     }, 1);
