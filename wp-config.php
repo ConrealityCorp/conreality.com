@@ -21,13 +21,13 @@ if (file_exists(dirname(__FILE__) . '/local-config.php')) {
 
 // Global DB config
 if (!defined('DB_NAME')) {
-	define('DB_NAME', 'bambuky_conreal');
+	define('DB_NAME', 'bambuky_conreal2');
 }
 if (!defined('DB_USER')) {
-	define('DB_USER', 'bambuky_conreal');
+	define('DB_USER', 'bambuky_conreal2');
 }
 if (!defined('DB_PASSWORD')) {
-	define('DB_PASSWORD', 'PvTdXs5i75S7');
+	define('DB_PASSWORD', 'h8x^_3SC3j');
 }
 if (!defined('DB_HOST')) {
 	define('DB_HOST', 'bambuky.mysql.tools');
